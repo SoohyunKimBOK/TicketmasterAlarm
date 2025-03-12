@@ -1,48 +1,30 @@
-[![MIT License](https://img.shields.io/badge/License-MIT-red.svg)](https://choosealicense.com/licenses/mit/) [![Build Passing](https://img.shields.io/badge/Build-Passing-green.svg)]()
+# Ticketmaster Alarm for Oasis Manchester
 
+### 1. 텔레그램 알림을 위한 토큰 생성
+      1) 텔레그램 가입
+      2) @TicketmasterAlarm_bot 을 추가하여 대화창 생성 후 아무말이나 입력
+      3) 아래 주소로 이동하여 chat ID 복사하기
+         https://api.telegram.org/bot7614380567:AAG2avP4mHktEkO08XRxIXb3ZA-QlXOyLSg/getUpdates
+         화면의 내용 중 .... "chat":{"id":-7510577298, .... 부분이 챗 아이디임
+      4) chat ID를 .env 파일에 입력 (마이너스를 제거하고 입력)
+         ex) TELEGRAM_CHAT_ID="7510577298"
+### 2. 티켓마스터 아이디 준비
+      1) 티켓마스터 가입
+      2) .env 파일에 티켓마스터 아이디, 비밀번호, 카드정보(주소 등 포함)을 입력
+### 3. 테스트 해보기
+      1) 프로그램은 main.py와 source.py로 이루어져있음
+         test.py와 source_test.py는 단순 테스트용이고 내부 코드는 동일
+      2) main이나 test를 RUN해서 오류가 없는 것을 확인
+### 4. 사용 주의사항 및 팁
+      1) 최저가격 티켓을 찾으면 결제 버튼 누르기 직전까지만 자동화되어 있음
+         만약 텔레그램 알림이 온다면 재빨리 떠있는 브라우저 창에서 결제 버튼을 누르기 (앱카드 인증 등 추가작업이 필요)
+      2) 알림이 오더라도 다른 봇이 티켓을 가로채가는 경우가 있지만, 뭔가 그러다 자꾸 풀리는 것 같이 보임
+         그럴 때는 해당 날짜의 URL만 골라서 하나만 반복해서 돌리다보면 어느샌가 내 손에 잡혀있음!
+      3) 참고로 모든 코드는 하드코딩 되어있으므로 오아시스 티켓팅에만 해당하는 코드임
+         다른 티켓마스터 티켓팅에 활용해도 좋지만, 많은 수정이 필요할지도...
 
-# Alertix
-
-Alertix is a simple Notification script for Ticketmaster resale tickets. When someone puts up tickets for resale on a sold out event, you get a text alert.
-
-![IMG_2110](https://github.com/cozma/alertix/assets/5613132/1eb918ab-3fc1-413e-8a1e-eb3b24594f12)
-
-# Requirements
-
-You will need a Twilio account with SMS set up. You can make a Twilio account and follow this simple setup guide: https://www.twilio.com/docs/sms/tutorials/how-work-your-free-twilio-trial-account
-
-
-
-
-
-## Environment Variables
-
-To run this project, you will need to update `index.js` in the following locations:
-
-`const accountSid = '<INSERT TWILIO ACCOUNT SID>';`
-
-`const authToken = '<INSERT TWILIO AUTH TOKEN>';`
-
-`from: '<INSERT TWILIO PHONE NUMBER>',`
-
-`to: '<INSERT DESINATION PHONE NUMBERS>'`
-
-
-## Installation
-
-**NOTE:** You will need Node v18 installed which you can find here: https://nodejs.org/en/download
-
-1. Download Project Zip and Extract contents to working directory
-
-2. Install alertix with NPM. Open your terminal and locate the directory of the project and install the dependencies:
-
-```bash
-  cd alertix
-  npm install
-```
-
-3. Run Script
-
-```bash
-  node index.js <INSERT LINK TO CONCERT>
-```
+### Installation
+    1. 파이썬 IDE로 프로젝트를 생성해서 불러오기
+    2. 필요한 라이브러리 설치 (터미널 사용)
+    3. 스크립트 돌리기
+    4. 오류 발생 시 문의 (챗지피티와 원만한 합의도 가능)
